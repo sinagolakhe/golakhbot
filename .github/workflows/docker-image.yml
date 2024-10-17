@@ -1,0 +1,23 @@
+name: xbot docker
+
+on:
+[workflow dispatch]
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+publish_images:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: checkout
+      run: docker build ./api/ -t sinagolakh/xbotL:latest
+      - name: push image -p ${{secrets.DOCKER_HUB_TOKEN}}
+      docker login -u sinagolakh
+      run: docker push ./api/ -t sinagolakh/xbotL:latest
