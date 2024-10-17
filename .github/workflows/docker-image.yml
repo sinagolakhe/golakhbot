@@ -1,11 +1,8 @@
 name: xbot docker
 
 on:
-[workflow dispatch]
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+ [workflow dispatch]
+
 
 jobs:
 publish_images:
